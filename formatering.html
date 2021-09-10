@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>QUnit Example</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.9.2.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.js"></script>
+    <script src="lib.js"></script>
+    <script>
+
+    //Model - Deklarer (vis frem) variabler som skal benyttes. 
+        //    Men ikke gi dem en verdi. Det gjøres i hver eneklt test.
+
+            var Navn;
+            
+            
+
+    //View - Her må vi legge inn en dummy versjon av "updateview" (for modul 1 og 2), om vi bruker MVC.
+        //   function updateviw() / show() osv...
+
+
+
+        QUnit.test("fix - første bokstav skal være STOR", function (assert) {
+            const actual = fixText('stigh');
+            const expected = 'Stigh';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - fjern mellomrom ", function (assert) {
+            const actual = fixText('stigh ');
+            const expected = 'Stigh';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - fjern mellomrom ", function (assert) {
+            const actual = fixText(' stigh');
+            const expected = 'Stigh';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - fjern mellomrom ", function (assert) {
+            const actual = fixText(' stigh ');
+            const expected = 'Stigh';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - + små bokstaver etter", function (assert) {
+            const actual = fixText(' sTIgh');
+            const expected = 'Stigh';
+            assert.equal(actual, expected);
+        });
+
+        QUnit.test("fix - + små bokstaver etter", function (assert) {
+            const actual = fixText(' sTigH ');
+            const expected = 'Stigh';
+            assert.equal(actual, expected, `actual: ${actual} expected ${expected}`);
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
